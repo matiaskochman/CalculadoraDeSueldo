@@ -1,12 +1,199 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity$PlaceholderFragment">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:textAlignment="center">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
-</RelativeLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <TextView
+            android:layout_width="232dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Calculadora de Sueldo"
+            android:id="@+id/text1"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.07" />
+
+
+    </LinearLayout>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_gravity="center_horizontal">
+
+        <ZoomButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/zoomButton"
+            android:layout_weight="0.07" />
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:text="Sueldo bruto"
+            android:id="@+id/textView1"
+            android:layout_weight="0.07"
+            android:autoText="false"
+            android:textSize="25dp" />
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:id="@+id/editText_salario"
+            android:layout_weight="0.63"
+            android:numeric="decimal"
+            android:inputType="numberDecimal" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="54dp">
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:text="Sindicato %"
+            android:id="@+id/textView2"
+            android:textSize="25dp"
+            android:layout_weight="0.03" />
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:id="@+id/editText_sindicato"
+            android:layout_weight="0.19"
+            android:numeric="decimal"
+            android:inputType="numberDecimal" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="54dp" >
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:text="Hijos"
+            android:id="@+id/textView3"
+            android:textSize="25dp"
+            android:layout_weight="0.03" />
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:id="@+id/editText_hijos"
+            android:layout_weight="0.19"
+            android:layout_gravity="center|right"
+            android:numeric="integer"
+            android:inputType="number" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="54dp" >
+
+        <TextView
+            android:layout_width="180dp"
+            android:layout_height="40dp"
+            android:text="Casado"
+            android:id="@+id/textView4"
+            android:textSize="25dp"
+            android:layout_weight="0.03" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.19">
+
+
+            <RadioGroup
+                android:id="@+id/rdgGrupo"
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkedButton="@+id/rdbOne"
+                android:layout_column="0"
+                android:layout_span="3">
+                <RadioButton
+                    android:id="@+id/radioButton_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="no"/>
+                <RadioButton
+                    android:id="@+id/radioButton_si"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="si"/>
+            </RadioGroup>
+            <!--
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Si"
+                android:id="@+id/radioButton_si" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No"
+                android:id="@+id/radioButton_no" />
+            -->
+
+        </LinearLayout>
+
+
+    </TableRow>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:paddingTop="0dp"
+        android:gravity="center_horizontal"
+        android:layout_gravity="bottom">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:gravity="bottom">
+
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="40dp"
+                android:text="Sueldo neto"
+                android:id="@+id/textView5"
+                android:textSize="25dp"
+                android:layout_weight="0.03" />
+
+            <EditText
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:id="@+id/editText_resultado"
+                android:layout_weight="0.19"
+                android:numeric="decimal"
+                android:enabled="true"
+                android:editable="false"
+                android:inputType="none|numberDecimal" />
+        </TableRow>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calcular"
+            android:id="@+id/button"
+            android:layout_weight="0.35"
+            android:visibility="visible"
+            android:typeface="serif" />
+    </LinearLayout>
+
+</LinearLayout>
