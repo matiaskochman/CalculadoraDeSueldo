@@ -1,7 +1,6 @@
 package com.argentina.salarycalculator.calculadoradesueldo;
 
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -64,5 +62,8 @@ public class MainActivity extends ActionBarActivity {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             return rootView;
         }
+    }
+    public static class AdFragment extends Fragment {
+
     }
 }
