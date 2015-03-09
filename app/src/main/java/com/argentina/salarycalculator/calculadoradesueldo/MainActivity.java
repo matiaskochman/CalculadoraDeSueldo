@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
+
+import com.argentina.salarycalculator.calculadoradesueldo.utils.JubilacionStrategy;
+import com.argentina.salarycalculator.calculadoradesueldo.utils.ObraSocialStrategy;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
@@ -139,9 +142,6 @@ public class MainActivity extends ActionBarActivity {
 
             }
 
-            descuento_jubilacion = salario * APORTES_JUBILATORIOS;
-            descuento_obrasocial = salario * OBRA_SOCIAL;
-
             if(sindicato_string!=null && !sindicato_string.equals("")){
                 sindicato = Float.valueOf(sindicato_string);
             }
@@ -150,8 +150,9 @@ public class MainActivity extends ActionBarActivity {
                 hijos = Integer.valueOf(hijos_string);
             }
 
-            //Float total = new Float(salario+(sindicato*salario/100f));
-            Float total = salario - descuento_jubilacion - descuento_obrasocial;
+            Float total = salario
+                    - JubilacionStrategy.calcularJubilacion(salario)
+                    - ObraSocialStrategy.calcularObraSocial(salario);
 
 
             et_resultado.setText(total.toString());
@@ -167,9 +168,7 @@ public class MainActivity extends ActionBarActivity {
         }
 
     }
-    /**
-     * This class makes the ad request and loads the ad.
-     */
+    /*
     public static class AdFragment extends Fragment {
 
         private AdView mAdView;
@@ -181,18 +180,12 @@ public class MainActivity extends ActionBarActivity {
         public void onActivityCreated(Bundle bundle) {
             super.onActivityCreated(bundle);
 
-            // Gets the ad view defined in layout/ad_fragment.xml with ad unit ID set in
-            // values/strings.xml.
             mAdView = (AdView) getView().findViewById(R.id.adView);
 
-            // Create an ad request. Check logcat output for the hashed device ID to
-            // get test ads on a physical device. e.g.
-            // "Use AdRequest.Builder.addTestDevice("ABCDEF012345") to get test ads on this device."
             AdRequest adRequest = new AdRequest.Builder()
                     .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
                     .build();
 
-            // Start loading the ad in the background.
             mAdView.loadAd(adRequest);
         }
 
@@ -202,7 +195,6 @@ public class MainActivity extends ActionBarActivity {
             return inflater.inflate(R.layout.fragment_ad, container, false);
         }
 
-        /** Called when leaving the activity */
         @Override
         public void onPause() {
             if (mAdView != null) {
@@ -211,7 +203,6 @@ public class MainActivity extends ActionBarActivity {
             super.onPause();
         }
 
-        /** Called when returning to the activity */
         @Override
         public void onResume() {
             super.onResume();
@@ -220,7 +211,6 @@ public class MainActivity extends ActionBarActivity {
             }
         }
 
-        /** Called before the activity is destroyed */
         @Override
         public void onDestroy() {
             if (mAdView != null) {
@@ -230,4 +220,5 @@ public class MainActivity extends ActionBarActivity {
         }
 
     }
+    */
 }
