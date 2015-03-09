@@ -13,8 +13,11 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
+import com.argentina.salarycalculator.calculadoradesueldo.utils.GananciasStrategy;
 import com.argentina.salarycalculator.calculadoradesueldo.utils.JubilacionStrategy;
 import com.argentina.salarycalculator.calculadoradesueldo.utils.ObraSocialStrategy;
+import com.argentina.salarycalculator.calculadoradesueldo.utils.PamiStrategy;
+import com.argentina.salarycalculator.calculadoradesueldo.utils.SindicatoStrategy;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
@@ -135,25 +138,53 @@ public class MainActivity extends ActionBarActivity {
             String sindicato_string = et_sindicato.getText().toString();
             String hijos_string = et_hijos.getText().toString();
 
-            if(salario_string!=null && Float.valueOf(salario_string)>1){
-                salario = Float.valueOf(salario_string);
+            if(salario_string!=null && !salario_string.equals("")){
+                if( Float.valueOf(salario_string)>1){
+                    salario = Float.valueOf(salario_string);
+                }else{
+                    et_salario.setError("el valor tiene que ser mayor que cero");
+                }
+
             }else{
+                et_salario.setError("el valor tiene que ser mayor que cero");
                 System.out.println("salario "+salario);
 
             }
 
             if(sindicato_string!=null && !sindicato_string.equals("")){
+
                 sindicato = Float.valueOf(sindicato_string);
+
+                if(sindicato<0){
+                    System.out.println("salario "+salario);
+
+                }
             }
 
             if(hijos_string!=null && !hijos_string.equals("")){
                 hijos = Integer.valueOf(hijos_string);
             }
 
-            Float total = salario
-                    - JubilacionStrategy.calcularJubilacion(salario)
-                    - ObraSocialStrategy.calcularObraSocial(salario);
+            float jubilacion = JubilacionStrategy.calcularJubilacion(salario);
+            float obrasocial = ObraSocialStrategy.calcularObraSocial(salario);
+            float pami = PamiStrategy.calcularPami(salario);
+            float sindicato_1 = SindicatoStrategy.calcularSindicato(salario,sindicato_string);
 
+            Float subtotalGananciaImponible = salario
+                    - jubilacion
+                    - obrasocial
+                    - pami
+                    - sindicato_1;
+
+
+            boolean casado =false;
+            if(rb_si.isChecked()){
+                casado=true;
+            }else if (rb_no.isChecked()){
+                casado=false;
+            }
+            int parientes = 0;
+            Float total = subtotalGananciaImponible - GananciasStrategy.calcularGanancia(subtotalGananciaImponible,casado,hijos,parientes);
 
             et_resultado.setText(total.toString());
 
