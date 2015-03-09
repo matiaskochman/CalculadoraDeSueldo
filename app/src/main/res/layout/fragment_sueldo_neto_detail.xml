@@ -42,17 +42,17 @@
                 android:layout_height="54dp">
 
                 <TextView
-                    android:layout_width="180dp"
+                    android:layout_width="270dp"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
-                    android:textSize="25dp"
+                    android:text="Sueldo Bruto"
+                    android:textSize="21dp"
                     android:id="@+id/textView7" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New Text"
-                    android:textSize="25dp"
+                    android:textSize="21dp"
                     android:id="@+id/textView8" />
             </LinearLayout>
         </TableRow>
@@ -67,17 +67,17 @@
                 android:layout_height="54dp">
 
                 <TextView
-                    android:layout_width="180dp"
+                    android:layout_width="270dp"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
-                    android:textSize="25dp"
+                    android:text="Jubilacion"
+                    android:textSize="21dp"
                     android:id="@+id/textView9" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New Text"
-                    android:textSize="25dp"
+                    android:textSize="21dp"
                     android:id="@+id/textView10" />
             </LinearLayout>
         </TableRow>
@@ -92,17 +92,17 @@
                 android:layout_height="54dp">
 
                 <TextView
-                    android:layout_width="180dp"
+                    android:layout_width="270dp"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
-                    android:textSize="25dp"
+                    android:text="Obra Social"
+                    android:textSize="21dp"
                     android:id="@+id/textView" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New Text"
-                    android:textSize="25dp"
+                    android:textSize="21dp"
                     android:id="@+id/textView6" />
             </LinearLayout>
         </TableRow>
@@ -117,17 +117,17 @@
                 android:layout_height="54dp">
 
                 <TextView
-                    android:layout_width="180dp"
+                    android:layout_width="270dp"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
-                    android:textSize="25dp"
+                    android:text="Ley 19032 (PAMI)"
+                    android:textSize="21dp"
                     android:id="@+id/textView11" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New Text"
-                    android:textSize="25dp"
+                    android:textSize="21dp"
                     android:id="@+id/textView12" />
             </LinearLayout>
         </TableRow>
@@ -142,17 +142,17 @@
                 android:layout_height="54dp">
 
                 <TextView
-                    android:layout_width="180dp"
+                    android:layout_width="270dp"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
-                    android:textSize="25dp"
+                    android:text="Sindicato"
+                    android:textSize="21dp"
                     android:id="@+id/textView14" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New Text"
-                    android:textSize="25dp"
+                    android:textSize="21dp"
                     android:id="@+id/textView13" />
             </LinearLayout>
 
@@ -168,18 +168,43 @@
                 android:layout_height="54dp">
 
                 <TextView
-                    android:layout_width="180dp"
+                    android:layout_width="270dp"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
-                    android:textSize="25dp"
+                    android:text="Impuesto a las Ganancias"
+                    android:textSize="21dp"
                     android:id="@+id/textView15" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="New Text"
-                    android:textSize="25dp"
+                    android:textSize="21dp"
                     android:id="@+id/textView16" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="54dp">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="54dp">
+
+                <TextView
+                    android:layout_width="270dp"
+                    android:layout_height="wrap_content"
+                    android:text="Sueldo Neto"
+                    android:textSize="21dp"
+                    android:id="@+id/textView17" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="New Text"
+                    android:textSize="21dp"
+                    android:id="@+id/textView18" />
             </LinearLayout>
         </TableRow>
 
