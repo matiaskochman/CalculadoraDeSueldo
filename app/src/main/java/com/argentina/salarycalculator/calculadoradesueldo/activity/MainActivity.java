@@ -1,6 +1,7 @@
-package com.argentina.salarycalculator.calculadoradesueldo;
+package com.argentina.salarycalculator.calculadoradesueldo.activity;
 
 import android.net.Uri;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -14,6 +15,8 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
+import com.argentina.salarycalculator.calculadoradesueldo.R;
+import com.argentina.salarycalculator.calculadoradesueldo.SueldoNetoDetail;
 import com.argentina.salarycalculator.calculadoradesueldo.utils.GananciasStrategy;
 import com.argentina.salarycalculator.calculadoradesueldo.utils.JubilacionStrategy;
 import com.argentina.salarycalculator.calculadoradesueldo.utils.ObraSocialStrategy;
@@ -22,7 +25,7 @@ import com.argentina.salarycalculator.calculadoradesueldo.utils.SindicatoStrateg
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +35,7 @@ public class MainActivity extends ActionBarActivity {
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
+                    .add(R.id.fragment_container, new PlaceholderFragment())
                     .commit();
         }
     }
@@ -198,10 +201,10 @@ public class MainActivity extends ActionBarActivity {
             SueldoNetoDetail sueldoNetoDetailFragment = SueldoNetoDetail.newInstance(salario,jubilacion,obrasocial,sindicato_1,ganancias,total,pami);
             getActivity().getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.container,sueldoNetoDetailFragment)
+                    .replace(R.id.fragment_container,sueldoNetoDetailFragment)
                             // We push the fragment transaction to back stack. User can go back to the
                             // previous fragment by pressing back button.
-                    .addToBackStack("detail")
+                    .addToBackStack(null)
                     .commit();
             //et_resultado.setText(total.toString());
 
