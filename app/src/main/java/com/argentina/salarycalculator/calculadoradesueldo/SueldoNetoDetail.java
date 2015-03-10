@@ -126,14 +126,13 @@ public class SueldoNetoDetail extends Fragment {
         TextView textView_ganancias = (TextView) parent.findViewById(R.id.textView_ganancias);
         TextView textView_sindicato = (TextView) parent.findViewById(R.id.textView_sindicato);
 
-        textView_sueldo_bruto.setText(sueldo_bruto.toString());
-
-        textView_sueldo_neto.setText(sueldoNeto.toString());
-        textView_jubilacion.setText(jubilacion.toString());
-        textView_obra_social.setText(obraSocial.toString());
-        textView_pami.setText(pami.toString());
-        textView_ganancias.setText(ganancias.toString());
-        textView_sindicato.setText(sindicato.toString());
+        textView_sueldo_bruto.setText(String.format("%.2f", sueldo_bruto));
+        textView_sueldo_neto.setText(String.format("%.2f",sueldoNeto));
+        textView_jubilacion.setText(String.format("%.2f",jubilacion));
+        textView_obra_social.setText(String.format("%.2f",obraSocial));
+        textView_pami.setText(String.format("%.2f",pami));
+        textView_ganancias.setText(String.format("%.2f", ganancias));
+        textView_sindicato.setText(String.format("%.2f",sindicato));
 
     }
 

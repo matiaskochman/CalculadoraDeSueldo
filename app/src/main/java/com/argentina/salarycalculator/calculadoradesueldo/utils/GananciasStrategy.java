@@ -18,7 +18,7 @@ public class GananciasStrategy {
         float ganancia_imponible = acumuladoSueldoBrutoAnual - GANANCIA_NO_IMPONIBLE
                 -GANANCIA_NO_IMPONIBLE_ASALARIADO;
 
-        float gananciaAPagar = 0f;
+        float gananciaAPagarAnual = 0f;
 
         if(casado){
             ganancia_imponible = ganancia_imponible - CASADO;
@@ -31,22 +31,26 @@ public class GananciasStrategy {
         }
 
 
-        if(ganancia_imponible<=10000f){
-            gananciaAPagar = ganancia_imponible*0.09f;
+        if(ganancia_imponible<=10000f && ganancia_imponible>0f){
+            gananciaAPagarAnual = ganancia_imponible*0.09f;
         }else if(ganancia_imponible<=20000f){
-            gananciaAPagar = 900f+ (ganancia_imponible-10000f)*0.14f;
+            gananciaAPagarAnual = 900f+ (ganancia_imponible-10000f)*0.14f;
         }else if(ganancia_imponible<=30000f){
-            gananciaAPagar = 2300f+ (ganancia_imponible-20000f)*0.19f;
+            gananciaAPagarAnual = 2300f+ (ganancia_imponible-20000f)*0.19f;
         }else if(ganancia_imponible<=60000f){
-            gananciaAPagar = 4200f+ (ganancia_imponible-30000f)*0.23f;
+            gananciaAPagarAnual = 4200f+ (ganancia_imponible-30000f)*0.23f;
         }else if(ganancia_imponible<=90000f){
-            gananciaAPagar = 11100f+ (ganancia_imponible-60000f)*0.27f;
+            gananciaAPagarAnual = 11100f+ (ganancia_imponible-60000f)*0.27f;
         }else if(ganancia_imponible<=120000f){
-            gananciaAPagar = 19200f+ (ganancia_imponible-90000f)*0.31f;
+            gananciaAPagarAnual = 19200f+ (ganancia_imponible-90000f)*0.31f;
         }else if(ganancia_imponible>120000f){
-            gananciaAPagar = 28500f+ (ganancia_imponible-120000f)*0.35f;
+            gananciaAPagarAnual = 28500f+ (ganancia_imponible-120000f)*0.35f;
+        }else if(ganancia_imponible<0){
+            gananciaAPagarAnual=0f;
         }
 
-        return gananciaAPagar;
+        Float gananciaAPagarMensual = gananciaAPagarAnual/12;
+
+        return gananciaAPagarMensual;
     }
 }
