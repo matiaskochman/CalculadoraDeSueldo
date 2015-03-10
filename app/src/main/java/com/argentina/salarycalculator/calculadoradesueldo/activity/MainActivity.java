@@ -222,7 +222,6 @@ public class MainActivity extends FragmentActivity {
         }
 
     }
-    /*
     public static class AdFragment extends Fragment {
 
         private AdView mAdView;
@@ -274,5 +273,6 @@ public class MainActivity extends FragmentActivity {
         }
 
     }
+    /*
     */
 }
