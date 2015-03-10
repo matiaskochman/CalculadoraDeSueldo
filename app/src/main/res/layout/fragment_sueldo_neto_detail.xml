@@ -53,7 +53,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:textSize="21dp"
                     android:id="@+id/textView_sueldo_bruto" />
             </LinearLayout>
@@ -78,7 +77,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:textSize="21dp"
                     android:id="@+id/textView_jubilacion" />
             </LinearLayout>
@@ -103,7 +101,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:textSize="21dp"
                     android:id="@+id/textView_obra_social" />
             </LinearLayout>
@@ -128,7 +125,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:textSize="21dp"
                     android:id="@+id/textView_pami" />
             </LinearLayout>
@@ -153,7 +149,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:textSize="21dp"
                     android:id="@+id/textView_sindicato" />
             </LinearLayout>
@@ -179,7 +174,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:textSize="21dp"
                     android:id="@+id/textView_ganancias" />
             </LinearLayout>
@@ -204,7 +198,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="New Text"
                     android:textSize="21dp"
                     android:id="@+id/textView_sueldo_neto" />
             </LinearLayout>

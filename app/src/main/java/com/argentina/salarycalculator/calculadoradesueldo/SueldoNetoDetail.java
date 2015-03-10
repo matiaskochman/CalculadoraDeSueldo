@@ -96,6 +96,11 @@ public class SueldoNetoDetail extends Fragment {
         assert item!=null;
         
         bind(item);
+
+        // We adjust the position of the initial image with LayoutParams using the values supplied
+        // as the fragment arguments.
+        //Bundle args = getArguments();
+        root.addView(item);
     }
 
 
