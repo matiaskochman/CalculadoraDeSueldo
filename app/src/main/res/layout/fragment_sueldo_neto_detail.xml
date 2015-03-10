@@ -58,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:text="New Text"
                     android:textSize="21dp"
-                    android:id="@+id/textView8" />
+                    android:id="@+id/textView_sueldo_bruto" />
             </LinearLayout>
         </TableRow>
 
@@ -83,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:text="New Text"
                     android:textSize="21dp"
-                    android:id="@+id/textView10" />
+                    android:id="@+id/textView_jubilacion" />
             </LinearLayout>
         </TableRow>
 
@@ -108,7 +108,7 @@
                     android:layout_height="wrap_content"
                     android:text="New Text"
                     android:textSize="21dp"
-                    android:id="@+id/textView6" />
+                    android:id="@+id/textView_obra_social" />
             </LinearLayout>
         </TableRow>
 
@@ -133,7 +133,7 @@
                     android:layout_height="wrap_content"
                     android:text="New Text"
                     android:textSize="21dp"
-                    android:id="@+id/textView12" />
+                    android:id="@+id/textView_pami" />
             </LinearLayout>
         </TableRow>
 
@@ -158,7 +158,7 @@
                     android:layout_height="wrap_content"
                     android:text="New Text"
                     android:textSize="21dp"
-                    android:id="@+id/textView13" />
+                    android:id="@+id/textView_sindicato" />
             </LinearLayout>
 
         </TableRow>
@@ -184,7 +184,7 @@
                     android:layout_height="wrap_content"
                     android:text="New Text"
                     android:textSize="21dp"
-                    android:id="@+id/textView16" />
+                    android:id="@+id/textView_ganancias" />
             </LinearLayout>
         </TableRow>
 
@@ -209,7 +209,7 @@
                     android:layout_height="wrap_content"
                     android:text="New Text"
                     android:textSize="21dp"
-                    android:id="@+id/textView18" />
+                    android:id="@+id/textView_sueldo_neto" />
             </LinearLayout>
         </TableRow>
 

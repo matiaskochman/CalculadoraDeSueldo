@@ -1,5 +1,6 @@
 package com.argentina.salarycalculator.calculadoradesueldo;
 
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -57,6 +58,11 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    //@Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 
     /**
@@ -184,9 +190,20 @@ public class MainActivity extends ActionBarActivity {
                 casado=false;
             }
             int parientes = 0;
-            Float total = subtotalGananciaImponible - GananciasStrategy.calcularGanancia(subtotalGananciaImponible,casado,hijos,parientes);
+            float ganancias = GananciasStrategy.calcularGanancia(subtotalGananciaImponible,casado,hijos,parientes);
 
-            et_resultado.setText(total.toString());
+            Float total = subtotalGananciaImponible - ganancias;
+
+
+            SueldoNetoDetail sueldoNetoDetailFragment = SueldoNetoDetail.newInstance(salario,jubilacion,obrasocial,sindicato_1,ganancias,total,pami);
+            getActivity().getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container,sueldoNetoDetailFragment)
+                            // We push the fragment transaction to back stack. User can go back to the
+                            // previous fragment by pressing back button.
+                    .addToBackStack("detail")
+                    .commit();
+            //et_resultado.setText(total.toString());
 
         }
 
