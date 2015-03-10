@@ -51,6 +51,10 @@ public class GananciasStrategy {
 
         Float gananciaAPagarMensual = gananciaAPagarAnual/12;
 
+        if(gananciaAPagarMensual<0){
+            return 0;
+        }
+
         return gananciaAPagarMensual;
     }
 }

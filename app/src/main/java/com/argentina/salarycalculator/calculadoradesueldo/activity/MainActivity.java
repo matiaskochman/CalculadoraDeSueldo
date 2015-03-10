@@ -103,6 +103,9 @@ public class MainActivity extends FragmentActivity {
         }
 
         private void initButton(View rootView) {
+
+            rb_no.setChecked(true);
+
             // Create the "retry" button, which tries to show an interstitial between game plays.
             button = (Button) rootView.findViewById(R.id.button);
             button.setOnClickListener(new View.OnClickListener() {
