@@ -2,7 +2,6 @@ package com.argentina.salarycalculator.calculadoradesueldo.activity;
 
 import android.net.Uri;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,16 +14,16 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
+
+import com.argentina.salarycalculator.calculadoradesueldo.fragment.SueldoNetoDetailFragment;
 import com.google.android.gms.ads.AdListener;
 import com.argentina.salarycalculator.calculadoradesueldo.R;
-import com.argentina.salarycalculator.calculadoradesueldo.SueldoNetoDetail;
 import com.argentina.salarycalculator.calculadoradesueldo.utils.GananciasStrategy;
 import com.argentina.salarycalculator.calculadoradesueldo.utils.JubilacionStrategy;
 import com.argentina.salarycalculator.calculadoradesueldo.utils.ObraSocialStrategy;
 import com.argentina.salarycalculator.calculadoradesueldo.utils.PamiStrategy;
 import com.argentina.salarycalculator.calculadoradesueldo.utils.SindicatoStrategy;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 
 public class MainActivity extends FragmentActivity {
@@ -270,7 +269,7 @@ public class MainActivity extends FragmentActivity {
             Float total = subtotalGananciaImponible - ganancias;
 
 
-            SueldoNetoDetail sueldoNetoDetailFragment = SueldoNetoDetail.newInstance(salario,jubilacion,obrasocial,sindicato_1,ganancias,total,pami);
+            SueldoNetoDetailFragment sueldoNetoDetailFragment = SueldoNetoDetailFragment.newInstance(salario, jubilacion, obrasocial, sindicato_1, ganancias, total, pami);
             getActivity().getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.fragment_container,sueldoNetoDetailFragment)

@@ -1,6 +1,5 @@
-package com.argentina.salarycalculator.calculadoradesueldo;
+package com.argentina.salarycalculator.calculadoradesueldo.fragment;
 
-import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -9,19 +8,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.argentina.salarycalculator.calculadoradesueldo.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link SueldoNetoDetail.OnFragmentInteractionListener} interface
+ * {@link SueldoNetoDetailFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link SueldoNetoDetail#newInstance} factory method to
+ * Use the {@link SueldoNetoDetailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class SueldoNetoDetail extends Fragment {
+public class SueldoNetoDetailFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -46,8 +46,8 @@ public class SueldoNetoDetail extends Fragment {
     //private OnFragmentInteractionListener mListener;
 
 
-    public static SueldoNetoDetail newInstance(Float sueldoBruto, Float jubilacion,Float obraSocial,Float sindicato,Float ganancias,Float sueldoNeto,Float pami) {
-        SueldoNetoDetail fragment = new SueldoNetoDetail();
+    public static SueldoNetoDetailFragment newInstance(Float sueldoBruto, Float jubilacion,Float obraSocial,Float sindicato,Float ganancias,Float sueldoNeto,Float pami) {
+        SueldoNetoDetailFragment fragment = new SueldoNetoDetailFragment();
         Bundle args = new Bundle();
 
         args.putFloat(SUELDO_BRUTO,sueldoBruto);
@@ -62,7 +62,7 @@ public class SueldoNetoDetail extends Fragment {
         return fragment;
     }
 
-    public SueldoNetoDetail() {
+    public SueldoNetoDetailFragment() {
         // Required empty public constructor
     }
 
