@@ -14,7 +14,8 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
-
+import android.widget.Toast;
+import com.google.android.gms.ads.AdListener;
 import com.argentina.salarycalculator.calculadoradesueldo.R;
 import com.argentina.salarycalculator.calculadoradesueldo.SueldoNetoDetail;
 import com.argentina.salarycalculator.calculadoradesueldo.utils.GananciasStrategy;
@@ -24,8 +25,10 @@ import com.argentina.salarycalculator.calculadoradesueldo.utils.PamiStrategy;
 import com.argentina.salarycalculator.calculadoradesueldo.utils.SindicatoStrategy;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 
 public class MainActivity extends FragmentActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +75,7 @@ public class MainActivity extends FragmentActivity {
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
+        private InterstitialAd mInterstitialAd;
 
         private Button button;
         private RadioButton rb_si;
@@ -99,6 +103,9 @@ public class MainActivity extends FragmentActivity {
             et_resultado = (EditText) rootView.findViewById(R.id.editText_resultado);
 
             initButton(rootView);
+            initAd();
+
+
             return rootView;
         }
 
@@ -111,6 +118,7 @@ public class MainActivity extends FragmentActivity {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    displayAd();
                     calcularSueldoNeto();
                 }
             });
@@ -132,9 +140,70 @@ public class MainActivity extends FragmentActivity {
                 }
             });
         }
+        @Override
+        public void onResume() {
+            // Initialize the timer if it hasn't been initialized yet.
+            // Start the game.
+            super.onResume();
+            System.out.println("onResume");
+
+            initAd();
+        }
+
+        @Override
+        public void onSaveInstanceState(Bundle outState) {
+            outState.putString("WORKAROUND_FOR_BUG_19917_KEY", "WORKAROUND_FOR_BUG_19917_VALUE");
+            super.onSaveInstanceState(outState);
+            System.out.println("onSaveInstanceState");
+
+        }
+
+        @Override
+        public void onPause() {
+            // Cancel the timer if the game is paused.
+
+            super.onPause();
+            System.out.println("onPause");
+        }
+
+        private void initAd() {
+            // Create the InterstitialAd and set the adUnitId.
+            mInterstitialAd = new InterstitialAd(getActivity());
+            // Defined in values/strings.xml
+            mInterstitialAd.setAdUnitId(getString(R.string.ad_unit_id));
+            AdRequest adRequest = new AdRequest.Builder().build();
+
+            mInterstitialAd.setAdListener(new AdListener() {
+                @Override
+                public void onAdLoaded() {
+                    Toast.makeText(getActivity(),
+                            "The interstitial is loaded", Toast.LENGTH_SHORT).show();
+                }
+/*
+                @Override
+                public void onAdClosed() {
+                    // Proceed to the next level.
+
+                    System.out.println("onAdClosed");
+                    calcularSueldoNeto();
+                }*/
+            });
+
+            mInterstitialAd.loadAd(adRequest);
 
 
 
+        }
+
+        private void displayAd() {
+            // Show the ad if it's ready. Otherwise toast and restart the game.
+            if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Toast.makeText(getActivity(), "Ad did not load", Toast.LENGTH_SHORT).show();
+                calcularSueldoNeto();
+            }
+        }
         private void calcularSueldoNeto() {
 
             float salario=0f;
@@ -222,6 +291,7 @@ public class MainActivity extends FragmentActivity {
         }
 
     }
+    /*
     public static class AdFragment extends Fragment {
 
         private AdView mAdView;
@@ -273,6 +343,5 @@ public class MainActivity extends FragmentActivity {
         }
 
     }
-    /*
     */
 }

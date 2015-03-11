@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/sueldo_neto_detail"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="1"
-    android:textAlignment="center">
+    android:textAlignment="center"
+    tools:ignore="MergeRootFrame">
 
 
     <!-- TODO: Update blank fragment layout -->
@@ -47,13 +49,13 @@
                     android:layout_width="270dp"
                     android:layout_height="wrap_content"
                     android:text="Sueldo Bruto"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:id="@+id/textView7" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:id="@+id/textView_sueldo_bruto" />
             </LinearLayout>
         </TableRow>
@@ -71,13 +73,13 @@
                     android:layout_width="270dp"
                     android:layout_height="wrap_content"
                     android:text="Jubilacion"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:id="@+id/textView9" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:id="@+id/textView_jubilacion" />
             </LinearLayout>
         </TableRow>
@@ -95,13 +97,13 @@
                     android:layout_width="270dp"
                     android:layout_height="wrap_content"
                     android:text="Obra Social"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:id="@+id/textView" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:id="@+id/textView_obra_social" />
             </LinearLayout>
         </TableRow>
@@ -119,13 +121,13 @@
                     android:layout_width="270dp"
                     android:layout_height="wrap_content"
                     android:text="Ley 19032 (PAMI)"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:id="@+id/textView11" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:id="@+id/textView_pami" />
             </LinearLayout>
         </TableRow>
@@ -143,13 +145,13 @@
                     android:layout_width="270dp"
                     android:layout_height="wrap_content"
                     android:text="Sindicato"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:id="@+id/textView14" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:id="@+id/textView_sindicato" />
             </LinearLayout>
 
@@ -168,13 +170,13 @@
                     android:layout_width="270dp"
                     android:layout_height="wrap_content"
                     android:text="Impuesto a las Ganancias"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:id="@+id/textView15" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:id="@+id/textView_ganancias" />
             </LinearLayout>
         </TableRow>
@@ -192,13 +194,13 @@
                     android:layout_width="270dp"
                     android:layout_height="wrap_content"
                     android:text="Sueldo Neto"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:id="@+id/textView17" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="18dp"
                     android:id="@+id/textView_sueldo_neto" />
             </LinearLayout>
         </TableRow>
