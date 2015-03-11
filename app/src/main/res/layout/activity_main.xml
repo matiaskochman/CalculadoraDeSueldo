@@ -40,13 +40,13 @@ limitations under the License.
             android:layout_above="@+id/adFragment">
             -->
         </FrameLayout>
-    <!--
     <fragment
         android:id="@+id/adFragment"
-        android:name="com.argentina.salarycalculator.calculadoradesueldo.activity.MainActivity$AdFragment"
+        android:name="com.argentina.salarycalculator.calculadoradesueldo.fragment.BannerAdFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
+    <!--
 -->
 
 </RelativeLayout>
