@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.argentina.salarycalculator.calculadoradesueldo.fragment.PlaceholderFragment;
 import com.argentina.salarycalculator.calculadoradesueldo.fragment.SueldoNetoDetailFragment;
 import com.google.android.gms.ads.AdListener;
 import com.argentina.salarycalculator.calculadoradesueldo.R;
@@ -35,9 +36,11 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
 
+        PlaceholderFragment fragment = new PlaceholderFragment();
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.fragment_container, new PlaceholderFragment())
+                    .add(R.id.fragment_container, fragment)
                     .commit();
         }
     }
@@ -73,6 +76,7 @@ public class MainActivity extends FragmentActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
+    /*
     public static class PlaceholderFragment extends Fragment {
         private InterstitialAd mInterstitialAd;
 
@@ -178,14 +182,7 @@ public class MainActivity extends FragmentActivity {
                     Toast.makeText(getActivity(),
                             "The interstitial is loaded", Toast.LENGTH_SHORT).show();
                 }
-/*
-                @Override
-                public void onAdClosed() {
-                    // Proceed to the next level.
 
-                    System.out.println("onAdClosed");
-                    calcularSueldoNeto();
-                }*/
             });
 
             mInterstitialAd.loadAd(adRequest);
@@ -290,6 +287,7 @@ public class MainActivity extends FragmentActivity {
         }
 
     }
+    */
     /*
     public static class AdFragment extends Fragment {
 
