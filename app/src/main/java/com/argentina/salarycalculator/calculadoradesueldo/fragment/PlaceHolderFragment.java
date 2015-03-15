@@ -189,6 +189,19 @@ public class PlaceholderFragment extends Fragment {
             return false;
 
         }
+        if(Float.valueOf(salario_string)<3000){
+            et_salario.setError("menos de 3000 pesos en muy poca guita");
+            return false;
+        }
+        if(Float.valueOf(salario_string)>1000000){
+            et_salario.setError("ganas mucha plata, andate al caribe");
+            return false;
+        }
+        if(hijos_string!=null && !hijos_string.equals("")&&Float.valueOf(hijos_string)>8){
+            et_hijos.setError("hasta 8 hijos");
+            return false;
+        }
+
         return true;
     }
 
@@ -247,7 +260,9 @@ public class PlaceholderFragment extends Fragment {
         String hijos_string = et_hijos.getText().toString();
 
             if( Float.valueOf(salario_string)>1){
+
                 salario = Float.valueOf(salario_string);
+
             }else{
                 et_salario.setError("el valor tiene que ser mayor que cero");
             }
