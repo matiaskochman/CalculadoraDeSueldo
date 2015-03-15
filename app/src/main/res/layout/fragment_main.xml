@@ -175,7 +175,8 @@
                 android:text="Sueldo neto"
                 android:id="@+id/textView5"
                 android:textSize="25dp"
-                android:layout_weight="0.03" />
+                android:layout_weight="0.03"
+                android:visibility="invisible" />
 
             <EditText
                 android:layout_width="150dp"
@@ -185,7 +186,8 @@
                 android:numeric="decimal"
                 android:enabled="true"
                 android:editable="false"
-                android:inputType="none|numberDecimal" />
+                android:inputType="none|numberDecimal"
+                android:visibility="invisible" />
         </TableRow>
 
         <Button

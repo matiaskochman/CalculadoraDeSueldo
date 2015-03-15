@@ -120,13 +120,15 @@ public class CalculadoraSueldo {
 
         Map<Float,OpcionMensualEscalaImpuesto> tabla_enero = new TreeMap<Float,OpcionMensualEscalaImpuesto>();
 
+        Float topeSalario = 1000000000f;
+
         OpcionMensualEscalaImpuesto a1 = new OpcionMensualEscalaImpuesto(0f, 833.33f,0f,0.09f);
         OpcionMensualEscalaImpuesto b1 = new OpcionMensualEscalaImpuesto(833.33f, 1666.67f,75f,0.14f);
         OpcionMensualEscalaImpuesto c1 = new OpcionMensualEscalaImpuesto(1666.67f,2500f,191.67f,0.19f);
         OpcionMensualEscalaImpuesto d1 = new OpcionMensualEscalaImpuesto(2500f, 5000f,350f,0.23f);
         OpcionMensualEscalaImpuesto e1 = new OpcionMensualEscalaImpuesto(5000f, 7500f,925f,0.27f);
         OpcionMensualEscalaImpuesto f1 = new OpcionMensualEscalaImpuesto(7500f, 10000f,1600f,0.31f);
-        OpcionMensualEscalaImpuesto g1 = new OpcionMensualEscalaImpuesto(10000f, 1000000000f,2375f,0.35f);
+        OpcionMensualEscalaImpuesto g1 = new OpcionMensualEscalaImpuesto(10000f, topeSalario,2375f,0.35f);
 
 
         tabla_enero.put(0f,a1);
@@ -147,7 +149,7 @@ public class CalculadoraSueldo {
         OpcionMensualEscalaImpuesto d2 = new OpcionMensualEscalaImpuesto(5000f, 10000f,700f,0.23f);
         OpcionMensualEscalaImpuesto e2 = new OpcionMensualEscalaImpuesto(10000f, 15000f,1850f,0.27f);
         OpcionMensualEscalaImpuesto f2 = new OpcionMensualEscalaImpuesto(15000f, 20000f,3200f,0.31f);
-        OpcionMensualEscalaImpuesto g2 = new OpcionMensualEscalaImpuesto(20000f, 1000000000f,4750f,0.35f);
+        OpcionMensualEscalaImpuesto g2 = new OpcionMensualEscalaImpuesto(20000f, topeSalario,4750f,0.35f);
 
 
         tabla_febrero.put(0f,a2);
@@ -168,7 +170,7 @@ public class CalculadoraSueldo {
         OpcionMensualEscalaImpuesto d3 = new OpcionMensualEscalaImpuesto(7500f, 15000f,1050f,0.23f);
         OpcionMensualEscalaImpuesto e3 = new OpcionMensualEscalaImpuesto(15000f, 22500f,2775f,0.27f);
         OpcionMensualEscalaImpuesto f3 = new OpcionMensualEscalaImpuesto(22500f, 30000f,4800f,0.31f);
-        OpcionMensualEscalaImpuesto g3 = new OpcionMensualEscalaImpuesto(30000f, 1000000000f,7125f,0.35f);
+        OpcionMensualEscalaImpuesto g3 = new OpcionMensualEscalaImpuesto(30000f, topeSalario,7125f,0.35f);
 
 
         tabla_marzo.put(0f,a3);
@@ -189,7 +191,7 @@ public class CalculadoraSueldo {
         OpcionMensualEscalaImpuesto d4 = new OpcionMensualEscalaImpuesto(10000f, 20000f,1400f,0.23f);
         OpcionMensualEscalaImpuesto e4 = new OpcionMensualEscalaImpuesto(20000f, 30000f,3700f,0.27f);
         OpcionMensualEscalaImpuesto f4 = new OpcionMensualEscalaImpuesto(30000f, 40000f,6400f,0.31f);
-        OpcionMensualEscalaImpuesto g4 = new OpcionMensualEscalaImpuesto(40000f, 1000000000f,9500f,0.35f);
+        OpcionMensualEscalaImpuesto g4 = new OpcionMensualEscalaImpuesto(40000f, topeSalario,9500f,0.35f);
 
 
         tabla_abril.put(0f,a4);
@@ -210,7 +212,7 @@ public class CalculadoraSueldo {
         OpcionMensualEscalaImpuesto d5 = new OpcionMensualEscalaImpuesto(12500f, 25000f,1750f,0.23f);
         OpcionMensualEscalaImpuesto e5 = new OpcionMensualEscalaImpuesto(25000f, 37500f,4625f,0.27f);
         OpcionMensualEscalaImpuesto f5 = new OpcionMensualEscalaImpuesto(37500f, 50000f,8000f,0.31f);
-        OpcionMensualEscalaImpuesto g5 = new OpcionMensualEscalaImpuesto(50000f, 1000000000f,11875f,0.35f);
+        OpcionMensualEscalaImpuesto g5 = new OpcionMensualEscalaImpuesto(50000f, topeSalario,11875f,0.35f);
 
 
         tabla_mayo.put(0f,a5);
@@ -232,7 +234,7 @@ public class CalculadoraSueldo {
         OpcionMensualEscalaImpuesto d6 = new OpcionMensualEscalaImpuesto(15000f, 30000f,2100f,0.23f);
         OpcionMensualEscalaImpuesto e6 = new OpcionMensualEscalaImpuesto(30000f, 45000f,5550f,0.27f);
         OpcionMensualEscalaImpuesto f6 = new OpcionMensualEscalaImpuesto(45000f, 60000f,9600f,0.31f);
-        OpcionMensualEscalaImpuesto g6 = new OpcionMensualEscalaImpuesto(60000f, 1000000000f,14250f,0.35f);
+        OpcionMensualEscalaImpuesto g6 = new OpcionMensualEscalaImpuesto(60000f, topeSalario,14250f,0.35f);
 
 
         tabla_junio.put(0f,a6);
@@ -253,7 +255,7 @@ public class CalculadoraSueldo {
         OpcionMensualEscalaImpuesto d7 = new OpcionMensualEscalaImpuesto(17500f, 35000f,2450f,0.23f);
         OpcionMensualEscalaImpuesto e7 = new OpcionMensualEscalaImpuesto(35000f, 52500f,6475f,0.27f);
         OpcionMensualEscalaImpuesto f7 = new OpcionMensualEscalaImpuesto(52500f, 70000f,11200f,0.31f);
-        OpcionMensualEscalaImpuesto g7 = new OpcionMensualEscalaImpuesto(70000f, 1000000000f,16625f,0.35f);
+        OpcionMensualEscalaImpuesto g7 = new OpcionMensualEscalaImpuesto(70000f, topeSalario,16625f,0.35f);
 
 
         tabla_julio.put(0f,a7);
@@ -274,7 +276,7 @@ public class CalculadoraSueldo {
         OpcionMensualEscalaImpuesto d8 = new OpcionMensualEscalaImpuesto(20000f, 40000f,2800f,0.23f);
         OpcionMensualEscalaImpuesto e8 = new OpcionMensualEscalaImpuesto(40000f, 60000f,7400f,0.27f);
         OpcionMensualEscalaImpuesto f8 = new OpcionMensualEscalaImpuesto(60000f, 80000f,12800f,0.31f);
-        OpcionMensualEscalaImpuesto g8 = new OpcionMensualEscalaImpuesto(80000f, 1000000000f,19000f,0.35f);
+        OpcionMensualEscalaImpuesto g8 = new OpcionMensualEscalaImpuesto(80000f, topeSalario,19000f,0.35f);
 
 
         tabla_agosto.put(0f,a8);
@@ -297,7 +299,7 @@ public class CalculadoraSueldo {
         Float e = 45000f;
         Float f = 67500f;
         Float g = 90000f;
-        Float h = 10000000f;
+        Float h = topeSalario;
 
         OpcionMensualEscalaImpuesto a9 = new OpcionMensualEscalaImpuesto(a, b,0f,0.09f);
         OpcionMensualEscalaImpuesto b9 = new OpcionMensualEscalaImpuesto(b, c,675f,0.14f);
@@ -328,7 +330,7 @@ public class CalculadoraSueldo {
         e = 50000f;
         f = 75000f;
         g = 100000f;
-        h = 10000000f;
+        h = topeSalario;
 
         OpcionMensualEscalaImpuesto a10 = new OpcionMensualEscalaImpuesto(a, b,0f,0.09f);
         OpcionMensualEscalaImpuesto b10 = new OpcionMensualEscalaImpuesto(b, c,750f,0.14f);
@@ -359,7 +361,7 @@ public class CalculadoraSueldo {
         e = 55000f;
         f = 82500f;
         g = 110000f;
-        h = 10000000f;
+        h = topeSalario;
 
         OpcionMensualEscalaImpuesto a11 = new OpcionMensualEscalaImpuesto(a, b,0f,0.09f);
         OpcionMensualEscalaImpuesto b11 = new OpcionMensualEscalaImpuesto(b, c,825f,0.14f);
@@ -390,7 +392,7 @@ public class CalculadoraSueldo {
         e = 60000f;
         f = 90000f;
         g = 120000f;
-        h = 10000000f;
+        h = topeSalario;
 
         OpcionMensualEscalaImpuesto a12 = new OpcionMensualEscalaImpuesto(a, b,0f,0.09f);
         OpcionMensualEscalaImpuesto b12 = new OpcionMensualEscalaImpuesto(b, c,900f,0.14f);
