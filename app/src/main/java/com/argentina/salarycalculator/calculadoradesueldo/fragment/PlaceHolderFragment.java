@@ -66,7 +66,6 @@ public class PlaceholderFragment extends Fragment {
 
         rb_si = (RadioButton) rootView.findViewById(R.id.radioButton_si);
         rb_no = (RadioButton) rootView.findViewById(R.id.radioButton_no);
-        et_resultado = (EditText) rootView.findViewById(R.id.editText_resultado);
 
         creacionFrasesValidacion();
         initButton(rootView);
@@ -166,7 +165,7 @@ public class PlaceholderFragment extends Fragment {
         // Create the InterstitialAd and set the adUnitId.
         mInterstitialAd = new InterstitialAd(mainActivity);
         // Defined in values/strings.xml
-        mInterstitialAd.setAdUnitId(getString(R.string.ad_unit_id));
+        mInterstitialAd.setAdUnitId(getString(R.string.test_pantalla_completa_ad_unit_id));
         AdRequest adRequest = new AdRequest.Builder().build();
 
         mInterstitialAd.setAdListener(new AdListener() {
@@ -314,14 +313,6 @@ public class PlaceholderFragment extends Fragment {
             }else{
                 et_salario.setError("el valor tiene que ser mayor que cero");
             }
-        /*
-        if(salario_string!=null && !salario_string.equals("")){
-
-        }else{
-            et_salario.setError("el valor tiene que ser mayor que cero");
-            System.out.println("salario "+salario);
-
-        }*/
 
         if(sindicato_string!=null && !sindicato_string.equals("")){
 
@@ -347,12 +338,6 @@ public class PlaceholderFragment extends Fragment {
                 - pami
                 - sindicato_1;
 
-        /*
-
-        int parientes = 0;
-        float ganancias = GananciasStrategy.calcularGanancia(subtotalGananciaImponible, casado, hijos, parientes);
-
-        */
 
         Map<String,Integer> variables = new HashMap<String,Integer>();
         boolean casado =false;
