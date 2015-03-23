@@ -202,6 +202,10 @@ public class PlaceholderFragment extends Fragment {
             return false;
         }
 
+        if(Float.valueOf(sindicato_string)<0 || Float.valueOf(sindicato_string)>10){
+            et_sindicato.setError("hasta 10% de descuento");
+
+        }
         return true;
     }
 
