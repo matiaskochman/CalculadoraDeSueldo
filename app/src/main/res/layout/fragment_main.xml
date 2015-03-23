@@ -43,7 +43,8 @@
             android:id="@+id/textView1"
             android:layout_weight="0.07"
             android:autoText="false"
-            android:textSize="25dp" />
+            android:textSize="25dp"
+            android:gravity="left" />
 
         <EditText
             android:layout_width="150dp"
@@ -65,7 +66,8 @@
             android:text="Sindicato %"
             android:id="@+id/textView2"
             android:textSize="25dp"
-            android:layout_weight="0.03" />
+            android:layout_weight="0.03"
+            android:gravity="left" />
 
         <EditText
             android:layout_width="150dp"
@@ -86,7 +88,8 @@
             android:text="Hijos"
             android:id="@+id/textView3"
             android:textSize="25dp"
-            android:layout_weight="0.03" />
+            android:layout_weight="0.03"
+            android:gravity="left" />
 
         <EditText
             android:layout_width="150dp"
@@ -108,7 +111,8 @@
             android:text="Casado"
             android:id="@+id/textView4"
             android:textSize="25dp"
-            android:layout_weight="0.03" />
+            android:layout_weight="0.03"
+            android:gravity="left" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -136,19 +140,6 @@
                     android:layout_height="wrap_content"
                     android:text="si"/>
             </RadioGroup>
-            <!--
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Si"
-                android:id="@+id/radioButton_si" />
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="No"
-                android:id="@+id/radioButton_no" />
-            -->
 
         </LinearLayout>
 

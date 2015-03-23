@@ -17,6 +17,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    signingConfigs {
+        calculadora {
+            storePassword 'vostok1957'
+            storeFile file('d:/desarrollo/Android/calculadora1.keystore')
+            keyPassword 'vostok1957'
+            keyAlias 'calculadora'
+        }
+    }
 }
 
 dependencies {

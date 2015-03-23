@@ -235,11 +235,14 @@ public class PlaceholderFragment extends Fragment {
             isValid=false;
         }
 
-        if(Float.valueOf(sindicato_string)<0 || Float.valueOf(sindicato_string)>10){
-            int r = new Random().nextInt(4);
+        if(sindicato_string!=null && !sindicato_string.equals("")){
+            if(Float.valueOf(sindicato_string)<0 || Float.valueOf(sindicato_string)>10){
+                int r = new Random().nextInt(4);
 
-            et_sindicato.setError(respuestasValidacion_sindicato.get(r));
-            isValid=false;
+                et_sindicato.setError(respuestasValidacion_sindicato.get(r));
+                isValid=false;
+
+            }
         }
 
         if(isValid){
