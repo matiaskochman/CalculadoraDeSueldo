@@ -1,9 +1,7 @@
 package com.argentina.salarycalculator.calculadoradesueldo.fragment;
 
 import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +14,6 @@ import android.widget.Toast;
 
 import com.argentina.salarycalculator.calculadoradesueldo.R;
 import com.argentina.salarycalculator.calculadoradesueldo.utils.CalculadoraSueldo;
-import com.argentina.salarycalculator.calculadoradesueldo.utils.GananciasStrategy;
 import com.argentina.salarycalculator.calculadoradesueldo.utils.JubilacionStrategy;
 import com.argentina.salarycalculator.calculadoradesueldo.utils.ObraSocialStrategy;
 import com.argentina.salarycalculator.calculadoradesueldo.utils.PamiStrategy;
@@ -28,6 +25,7 @@ import com.google.android.gms.ads.InterstitialAd;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -47,6 +45,11 @@ public class PlaceholderFragment extends Fragment {
     private EditText et_sindicato;
     private EditText et_hijos;
     private EditText et_resultado;
+    private Map<Integer,String> respuestasValidacion_sueldoBruto_minimo = new HashMap<Integer,String>();
+    private Map<Integer,String> respuestasValidacion_sueldoBruto_maximo = new HashMap<Integer,String>();
+    private Map<Integer,String> respuestasValidacion_sindicato = new HashMap<Integer,String>();
+    private static final Float salarioMinimo = 4716f;
+    private static final Float salarioMaximo = 1000000f;
 
     public PlaceholderFragment() {
     }
@@ -65,11 +68,31 @@ public class PlaceholderFragment extends Fragment {
         rb_no = (RadioButton) rootView.findViewById(R.id.radioButton_no);
         et_resultado = (EditText) rootView.findViewById(R.id.editText_resultado);
 
+        creacionFrasesValidacion();
         initButton(rootView);
         initAd();
 
 
         return rootView;
+    }
+
+    private void creacionFrasesValidacion(){
+        respuestasValidacion_sueldoBruto_minimo.put(1, "poca guita, superá el salario minimo, master");
+        respuestasValidacion_sueldoBruto_minimo.put(2, "poca guita, no manejamos salarios bajo cero");
+        respuestasValidacion_sueldoBruto_minimo.put(3, "poca guita, contratá un abogado");
+        respuestasValidacion_sueldoBruto_minimo.put(0, "poca guita, nunca vas a viajar a europa");
+        respuestasValidacion_sueldoBruto_minimo.put(4, "poca guita, estas para comer arroz y agua");
+
+        respuestasValidacion_sueldoBruto_maximo.put(0, "mucha guita, anda a navegar al delta");
+        respuestasValidacion_sueldoBruto_maximo.put(1, "mucha guita, andate ibiza negro");
+        respuestasValidacion_sueldoBruto_maximo.put(2, "mucha guita, agarrate una modelo titán");
+
+
+        respuestasValidacion_sindicato.put(1, "error, superaste el maximo, cambia de sindicato");
+        respuestasValidacion_sindicato.put(0, "error, tu sindicato esta lavando guita");
+        respuestasValidacion_sindicato.put(2, "error, tu sindicato te estafa");
+        respuestasValidacion_sindicato.put(3, "error, sos un esclavo de tu sindicato");
+
     }
 
     private void initButton(View rootView) {
@@ -184,29 +207,47 @@ public class PlaceholderFragment extends Fragment {
         String sindicato_string = et_sindicato.getText().toString();
         String hijos_string = et_hijos.getText().toString();
 
+        boolean isValid = true;
+
         if(salario_string==null || salario_string.equals("")){
-            et_salario.setError("el valor tiene que ser mayor que cero");
-            return false;
+
+            int r = new Random().nextInt(5);
+
+            et_salario.setError(respuestasValidacion_sueldoBruto_minimo.get(r));
+            isValid=false;
 
         }
-        if(Float.valueOf(salario_string)<3000){
-            et_salario.setError("menos de 3000 pesos en muy poca guita");
-            return false;
+        if(Float.valueOf(salario_string)<salarioMinimo){
+            int r = new Random().nextInt(5);
+
+            et_salario.setError(respuestasValidacion_sueldoBruto_minimo.get(r));
+            isValid=false;
         }
-        if(Float.valueOf(salario_string)>1000000){
-            et_salario.setError("ganas mucha plata, andate al caribe");
-            return false;
+        if(Float.valueOf(salario_string)>salarioMaximo){
+
+            int r = new Random().nextInt(3);
+
+            et_salario.setError(respuestasValidacion_sueldoBruto_maximo.get(r));
+            isValid=false;
         }
         if(hijos_string!=null && !hijos_string.equals("")&&Float.valueOf(hijos_string)>8){
             et_hijos.setError("hasta 8 hijos");
-            return false;
+            isValid=false;
         }
 
         if(Float.valueOf(sindicato_string)<0 || Float.valueOf(sindicato_string)>10){
-            et_sindicato.setError("hasta 10% de descuento");
+            int r = new Random().nextInt(4);
 
+            et_sindicato.setError(respuestasValidacion_sindicato.get(r));
+            isValid=false;
         }
-        return true;
+
+        if(isValid){
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
     private void calcularSueldoNetoPorMes(){
