@@ -23,6 +23,9 @@ import com.argentina.salarycalculator.calculadoradesueldo.R;
  */
 public class SueldoNetoDetailFragment extends Fragment {
 
+
+    private static SueldoNetoDetailFragment instance = null;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String SUELDO_BRUTO = "sueldoBruto";
@@ -47,19 +50,23 @@ public class SueldoNetoDetailFragment extends Fragment {
 
 
     public static SueldoNetoDetailFragment newInstance(Float sueldoBruto, Float jubilacion,Float obraSocial,Float sindicato,Float ganancias,Float sueldoNeto,Float pami) {
-        SueldoNetoDetailFragment fragment = new SueldoNetoDetailFragment();
-        Bundle args = new Bundle();
 
-        args.putFloat(SUELDO_BRUTO,sueldoBruto);
-        args.putFloat(JUBILACION,jubilacion);
-        args.putFloat(OBRA_SOCIAL,obraSocial);
-        args.putFloat(SINDICATO,sindicato);
-        args.putFloat(GANANCIAS,ganancias);
-        args.putFloat(SUELDO_NETO,sueldoNeto);
-        args.putFloat(PAMI,pami);
+        if(instance==null){
 
-        fragment.setArguments(args);
-        return fragment;
+            instance = new SueldoNetoDetailFragment();
+            Bundle args = new Bundle();
+
+            args.putFloat(SUELDO_BRUTO,sueldoBruto);
+            args.putFloat(JUBILACION,jubilacion);
+            args.putFloat(OBRA_SOCIAL,obraSocial);
+            args.putFloat(SINDICATO,sindicato);
+            args.putFloat(GANANCIAS,ganancias);
+            args.putFloat(SUELDO_NETO,sueldoNeto);
+            args.putFloat(PAMI,pami);
+
+            instance.setArguments(args);
+        }
+        return instance;
     }
 
     public SueldoNetoDetailFragment() {

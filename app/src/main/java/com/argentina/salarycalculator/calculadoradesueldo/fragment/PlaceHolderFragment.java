@@ -372,6 +372,7 @@ public class PlaceholderFragment extends Fragment {
         Float total = subtotalGananciaImponible - ganancias_mensual;
 
 
+
         SueldoNetoDetailFragment sueldoNetoDetailFragment = SueldoNetoDetailFragment.newInstance(salario, jubilacion, obrasocial, sindicato_1, ganancias_mensual, total, pami);
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
