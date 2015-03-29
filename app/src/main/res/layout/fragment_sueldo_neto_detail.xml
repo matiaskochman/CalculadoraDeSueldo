@@ -16,6 +16,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
+        android:gravity="center"
         android:layout_height="90dp">
 
         <TextView
@@ -25,7 +26,8 @@
             android:text="Sueldo Neto Detallado"
             android:id="@+id/text2"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="0.07" />
+            android:layout_weight="0.07"
+            android:gravity="center" />
 
 
     </LinearLayout>
@@ -44,7 +46,9 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="50dp">
+                android:layout_height="50dp"
+                android:background="#b6dee9"
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="240dp"
@@ -69,7 +73,8 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="50dp">
+                android:layout_height="50dp"
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="240dp"
@@ -94,7 +99,9 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="50dp">
+                android:layout_height="50dp"
+                android:background="#b6dee9"
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="240dp"
@@ -119,7 +126,8 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="50dp">
+                android:layout_height="50dp"
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="240dp"
@@ -144,7 +152,9 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="50dp">
+                android:background="#b6dee9"
+                android:layout_height="50dp"
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="240dp"
@@ -170,7 +180,8 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="50dp">
+                android:layout_height="50dp"
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="240dp"
@@ -195,7 +206,9 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
-                android:layout_height="50dp">
+                android:background="#b6dee9"
+                android:layout_height="50dp"
+                android:gravity="center">
 
                 <TextView
                     android:layout_width="240dp"
