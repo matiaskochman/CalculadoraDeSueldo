@@ -30,7 +30,7 @@ import java.util.Set;
 import java.util.TreeMap;
 
 
-public class PlaceholderFragment extends Fragment {
+public class PlaceHolderFragment extends Fragment {
 
     private InterstitialAd mInterstitialAd;
 
@@ -51,7 +51,7 @@ public class PlaceholderFragment extends Fragment {
     private static final Float salarioMinimo = 4716f;
     private static final Float salarioMaximo = 1000000f;
 
-    public PlaceholderFragment() {
+    public PlaceHolderFragment() {
     }
 
     @Override
@@ -306,13 +306,13 @@ public class PlaceholderFragment extends Fragment {
         String sindicato_string = et_sindicato.getText().toString();
         String hijos_string = et_hijos.getText().toString();
 
-            if( Float.valueOf(salario_string)>1){
+        if( Float.valueOf(salario_string)>1){
 
-                salario = Float.valueOf(salario_string);
+            salario = Float.valueOf(salario_string);
 
-            }else{
-                et_salario.setError("el valor tiene que ser mayor que cero");
-            }
+        }else{
+            et_salario.setError("el valor tiene que ser mayor que cero");
+        }
 
         if(sindicato_string!=null && !sindicato_string.equals("")){
 

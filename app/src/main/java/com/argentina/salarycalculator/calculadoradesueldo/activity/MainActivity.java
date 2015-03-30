@@ -5,7 +5,8 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import com.argentina.salarycalculator.calculadoradesueldo.fragment.PlaceholderFragment;
+
+import com.argentina.salarycalculator.calculadoradesueldo.fragment.PlaceHolderFragment;
 import com.argentina.salarycalculator.calculadoradesueldo.R;
 
 
@@ -18,7 +19,7 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
 
-        PlaceholderFragment fragment = new PlaceholderFragment();
+        PlaceHolderFragment fragment = new PlaceHolderFragment();
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
