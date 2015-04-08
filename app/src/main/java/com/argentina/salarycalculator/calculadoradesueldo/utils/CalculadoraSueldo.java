@@ -31,36 +31,24 @@ public class CalculadoraSueldo {
 
         for(int mes=1;mes<=12;mes++){
 
-
+            /**
+             * deshabilitado porque serviria para calcular ganancias con aguinaldo, anual.
+             * y quiero calcular mensual
+             */
             if(mes==6 || mes==12){
                 salarioBrutoMensual = salarioBrutoMensualOriginal + salarioBrutoMensualOriginal/2;
             }else{
                 salarioBrutoMensual = salarioBrutoMensualOriginal;
             }
+            /*
+            salarioBrutoMensual = salarioBrutoMensualOriginal;
+            */
 
-            //Float salarioBrutoMensual = 19000f;
             Float gananciaNetaAcumuladaMensual = 0f;
 
-            /*
-            float jubilacion = JubilacionStrategy.calcularJubilacion(salarioBrutoMensual);
-            float obrasocial = ObraSocialStrategy.calcularObraSocial(salarioBrutoMensual);
-            float pami = PamiStrategy.calcularPami(salarioBrutoMensual);
-            float sindicato = SindicatoStrategy.calcularSindicato(salarioBrutoMensual, porcentajeSindicato);
-            */
-            /*
-            Float jubilacion = calcularJubilacion(salarioBrutoMensual);
-            Float pami = calcularPami(salarioBrutoMensual);
-            Float sindicato = calcularSindicato(salarioBrutoMensual, "0");
-            Float obrasocial = calcularObraSocial(salarioBrutoMensual);
-            */
 
             gananciaNetaAcumuladaMensual = salarioBrutoMensual;
-            /*
-                    -jubilacion
-                    -pami
-                    -sindicato
-                    -obrasocial;
-                */
+
             imputable_mes[mes] = calculoAnteriorAGanancias(gananciaNetaAcumuladaMensual,listaGastos,variables) + imputable_mes[mes-1];
 
             a_pagar_mes[mes] =  calcularMes(tabla_retenciones_mensuales[mes-1], tabla_retenciones_mensuales[mes-1].keySet(), imputable_mes[mes]) - acumulado_mes[mes-1];

@@ -51,6 +51,14 @@ public class PlaceHolderFragment extends Fragment {
     private static final Float salarioMinimo = 4716f;
     private static final Float salarioMaximo = 1000000f;
 
+    private Integer lastSueldoBrutoMinimoValidation = 0;
+    private Integer lastSueldoBrutoMaximoValidation = 0;
+    private Integer lastSindicatoValidation = 0;
+
+    private Integer MAX_SUELDO_BRUTO_MINIMO_VALIDATION = 0;
+    private Integer MAX_SUELDO_BRUTO_MAXIMO_VALIDATION = 0;
+    private Integer MAX_SINDICATO_VALIDATION = 0;
+
     public PlaceHolderFragment() {
     }
 
@@ -78,19 +86,31 @@ public class PlaceHolderFragment extends Fragment {
     private void creacionFrasesValidacion(){
         respuestasValidacion_sueldoBruto_minimo.put(1, "poca guita, superá el salario minimo, master");
         respuestasValidacion_sueldoBruto_minimo.put(2, "poca guita, no manejamos salarios bajo cero");
-        respuestasValidacion_sueldoBruto_minimo.put(3, "poca guita, contratá un abogado");
+        respuestasValidacion_sueldoBruto_minimo.put(3, "poca guita, anotá mi numero y te presto plata");
         respuestasValidacion_sueldoBruto_minimo.put(0, "poca guita, nunca vas a viajar a europa");
         respuestasValidacion_sueldoBruto_minimo.put(4, "poca guita, estas para comer arroz y agua");
+        respuestasValidacion_sueldoBruto_minimo.put(5, "poca guita, olvidate del asado con amigos");
+        respuestasValidacion_sueldoBruto_minimo.put(6, "poca guita, estas para dormir abajo del puente");
+        respuestasValidacion_sueldoBruto_minimo.put(7, "poca guita, no te cobran ganancias ni muerto");
+        respuestasValidacion_sueldoBruto_minimo.put(8, "poca guita, estas contando las moneditas?");
 
         respuestasValidacion_sueldoBruto_maximo.put(0, "mucha guita, anda a navegar al delta");
         respuestasValidacion_sueldoBruto_maximo.put(1, "mucha guita, andate ibiza negro");
         respuestasValidacion_sueldoBruto_maximo.put(2, "mucha guita, agarrate una modelo titán");
+        respuestasValidacion_sueldoBruto_maximo.put(3, "mucha guita, podes ser del jet set");
+        respuestasValidacion_sueldoBruto_maximo.put(4, "mucha guita, guarda con los punguistas en el subte");
+        respuestasValidacion_sueldoBruto_maximo.put(5, "mucha guita, nunca lavaste un plato");
 
 
         respuestasValidacion_sindicato.put(1, "error, superaste el maximo, cambia de sindicato");
         respuestasValidacion_sindicato.put(0, "error, tu sindicato esta lavando guita");
         respuestasValidacion_sindicato.put(2, "error, tu sindicato te estafa");
         respuestasValidacion_sindicato.put(3, "error, sos un esclavo de tu sindicato");
+
+
+        MAX_SUELDO_BRUTO_MINIMO_VALIDATION = respuestasValidacion_sueldoBruto_minimo.size();
+        MAX_SUELDO_BRUTO_MAXIMO_VALIDATION = respuestasValidacion_sueldoBruto_maximo.size();
+        MAX_SINDICATO_VALIDATION = respuestasValidacion_sindicato.size();
 
     }
 
@@ -210,22 +230,31 @@ public class PlaceHolderFragment extends Fragment {
 
         if(salario_string==null || salario_string.equals("")){
 
-            int r = new Random().nextInt(5);
-
+            int r = new Random().nextInt(MAX_SUELDO_BRUTO_MINIMO_VALIDATION);
+            while(lastSueldoBrutoMinimoValidation == r){
+                r = new Random().nextInt(MAX_SUELDO_BRUTO_MINIMO_VALIDATION);
+            }
+            lastSueldoBrutoMinimoValidation = r;
             et_salario.setError(respuestasValidacion_sueldoBruto_minimo.get(r));
             isValid=false;
 
-        }
-        if(Float.valueOf(salario_string)<salarioMinimo){
-            int r = new Random().nextInt(5);
+        }else if(Float.valueOf(salario_string)<salarioMinimo){
 
+            int r = new Random().nextInt(MAX_SUELDO_BRUTO_MINIMO_VALIDATION);
+            while(lastSueldoBrutoMinimoValidation == r){
+                r = new Random().nextInt(MAX_SUELDO_BRUTO_MINIMO_VALIDATION);
+            }
+            lastSueldoBrutoMinimoValidation = r;
             et_salario.setError(respuestasValidacion_sueldoBruto_minimo.get(r));
             isValid=false;
-        }
-        if(Float.valueOf(salario_string)>salarioMaximo){
+        }else if(Float.valueOf(salario_string)>salarioMaximo){
 
-            int r = new Random().nextInt(3);
+            int r = new Random().nextInt(MAX_SUELDO_BRUTO_MAXIMO_VALIDATION);
 
+            while(lastSueldoBrutoMaximoValidation == r){
+                r = new Random().nextInt(MAX_SUELDO_BRUTO_MAXIMO_VALIDATION);
+            }
+            lastSueldoBrutoMaximoValidation = r;
             et_salario.setError(respuestasValidacion_sueldoBruto_maximo.get(r));
             isValid=false;
         }
@@ -236,8 +265,11 @@ public class PlaceHolderFragment extends Fragment {
 
         if(sindicato_string!=null && !sindicato_string.equals("")){
             if(Float.valueOf(sindicato_string)<0 || Float.valueOf(sindicato_string)>10){
-                int r = new Random().nextInt(4);
-
+                int r = new Random().nextInt(MAX_SINDICATO_VALIDATION);
+                while(lastSindicatoValidation == r){
+                    r = new Random().nextInt(MAX_SINDICATO_VALIDATION);
+                }
+                lastSindicatoValidation = r;
                 et_sindicato.setError(respuestasValidacion_sindicato.get(r));
                 isValid=false;
 
@@ -294,7 +326,6 @@ public class PlaceHolderFragment extends Fragment {
     private void calcularSueldoNeto() {
 
         float salario=0f;
-        float sindicato=0f;
         float descuento_jubilacion = 0f;
         float descuento_obrasocial = 0f;
         float subtotal = 0f;
@@ -306,37 +337,32 @@ public class PlaceHolderFragment extends Fragment {
         String sindicato_string = et_sindicato.getText().toString();
         String hijos_string = et_hijos.getText().toString();
 
-        if( Float.valueOf(salario_string)>1){
 
-            salario = Float.valueOf(salario_string);
-
-        }else{
-            et_salario.setError("el valor tiene que ser mayor que cero");
-        }
-
-        if(sindicato_string!=null && !sindicato_string.equals("")){
-
-            sindicato = Float.valueOf(sindicato_string);
-
-            if(sindicato<0){
-                System.out.println("sindicato "+sindicato);
-
-            }
-        }
-
+        salario = Float.valueOf(salario_string);
 
         float jubilacion = JubilacionStrategy.calcularJubilacion(salario);
         float obrasocial = ObraSocialStrategy.calcularObraSocial(salario);
         float pami = PamiStrategy.calcularPami(salario);
-        float sindicato_1 = SindicatoStrategy.calcularSindicato(salario, sindicato_string);
+        float sindicato = SindicatoStrategy.calcularSindicato(salario, sindicato_string);
 
+        float salario_con_aguinaldo = salario + salario/2;
 
+        float jubilacion_con_aguinaldo = JubilacionStrategy.calcularJubilacion(salario_con_aguinaldo);
+        float obrasocial_con_aguinaldo = ObraSocialStrategy.calcularObraSocial(salario_con_aguinaldo);
+        float pami_con_aguinaldo = PamiStrategy.calcularPami(salario_con_aguinaldo);
+        float sindicato_con_aguinaldo = SindicatoStrategy.calcularSindicato(salario_con_aguinaldo, sindicato_string);
 
         Float subtotalGananciaImponible = salario
                 - jubilacion
                 - obrasocial
                 - pami
-                - sindicato_1;
+                - sindicato;
+
+        Float subtotalGananciaImponible_con_aguinaldo = salario_con_aguinaldo
+                - jubilacion_con_aguinaldo
+                - obrasocial_con_aguinaldo
+                - pami_con_aguinaldo
+                - sindicato_con_aguinaldo;
 
 
         Map<String,Integer> variables = new HashMap<String,Integer>();
@@ -368,12 +394,35 @@ public class PlaceHolderFragment extends Fragment {
             ganancias +=gasto;
         }
 
-        Float ganancias_mensual = ganancias/12;
-        Float total = subtotalGananciaImponible - ganancias_mensual;
+        //Float ganancias_mensual_SIN_AGUINALDO = ganancias/12;
+        Float ganancias_mensual_SIN_AGUINALDO = a_pagar_mes_a_mes[1];
+
+        Float total = subtotalGananciaImponible - ganancias_mensual_SIN_AGUINALDO;
+
+        Float total_con_aguinaldo = subtotalGananciaImponible_con_aguinaldo - a_pagar_mes_a_mes[7];
+
+        Map<String,Float> variable_con_aguinaldo = new HashMap<String,Float>();
+        Map<String,Float> variable = new HashMap<String,Float>();
+
+        variable.put("sueldoBruto",salario);
+        variable.put("jubilacion",jubilacion);
+        variable.put("obrasocial",obrasocial);
+        variable.put("pami",pami);
+        variable.put("sindicato",sindicato);
+        variable.put("sueldoNeto",total);
+        variable.put("ganancias_mensual",ganancias_mensual_SIN_AGUINALDO);
 
 
+        variable_con_aguinaldo.put("sueldoBruto_con_aguinaldo",salario_con_aguinaldo);
+        variable_con_aguinaldo.put("jubilacion_con_aguinaldo",jubilacion_con_aguinaldo);
+        variable_con_aguinaldo.put("obrasocial_con_aguinaldo",obrasocial_con_aguinaldo);
+        variable_con_aguinaldo.put("pami_con_aguinaldo",pami_con_aguinaldo);
+        variable_con_aguinaldo.put("sindicato_con_aguinaldo",sindicato_con_aguinaldo);
+        variable_con_aguinaldo.put("sueldoNeto_con_aguinaldo",total_con_aguinaldo);
+        variable_con_aguinaldo.put("ganancias_mensual_con_aguinaldo",a_pagar_mes_a_mes[7]);
 
-        SueldoNetoDetailFragment sueldoNetoDetailFragment = SueldoNetoDetailFragment.newInstance(salario, jubilacion, obrasocial, sindicato_1, ganancias_mensual, total, pami);
+        //SueldoNetoDetailFragment sueldoNetoDetailFragment = SueldoNetoDetailFragment.newInstance(salario, jubilacion, obrasocial, sindicato_1, ganancias_mensual_SIN_AGUINALDO, total, pami);
+        SueldoNetoDetailFragment sueldoNetoDetailFragment = SueldoNetoDetailFragment.newInstance(variable,variable_con_aguinaldo);
         getActivity().getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.fragment_container,sueldoNetoDetailFragment)

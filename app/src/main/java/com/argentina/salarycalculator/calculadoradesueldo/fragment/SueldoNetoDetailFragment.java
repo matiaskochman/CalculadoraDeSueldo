@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.argentina.salarycalculator.calculadoradesueldo.R;
 
+import java.util.Map;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,6 +37,14 @@ public class SueldoNetoDetailFragment extends Fragment {
     private static final String PAMI = "pami";
     private static final String SUELDO_NETO = "sueldoNeto";
 
+    private static final String SUELDO_BRUTO_AGUINALDO = "sueldoBruto_con_aguinaldo";
+    private static final String JUBILACION_AGUINALDO = "jubilacion_con_aguinaldo";
+    private static final String OBRA_SOCIAL_AGUINALDO = "obrasocial_con_aguinaldo";
+    private static final String SINDICATO_AGUINALDO = "sindicato_con_aguinaldo";
+    private static final String GANANCIAS_AGUINALDO = "ganancias_mensual_con_aguinaldo";
+    private static final String PAMI_AGUINALDO = "pami_con_aguinaldo";
+    private static final String SUELDO_NETO_AGUINALDO = "sueldoNeto_con_aguinaldo";
+
     // TODO: Rename and change types of parameters
 
     private Float sueldo_bruto;
@@ -48,20 +58,22 @@ public class SueldoNetoDetailFragment extends Fragment {
     //private OnFragmentInteractionListener mListener;
 
 
-    public static SueldoNetoDetailFragment newInstance(Float sueldoBruto, Float jubilacion,Float obraSocial,Float sindicato,Float ganancias,Float sueldoNeto,Float pami) {
+    public static SueldoNetoDetailFragment newInstance(Map<String,Float> variable, Map<String,Float> variable_con_aguinaldo) {
+
+        //Float sueldoBruto, Float jubilacion,Float obraSocial,Float sindicato,Float ganancias,Float sueldoNeto,Float pami
 
         SueldoNetoDetailFragment instance = null;
 
         instance = new SueldoNetoDetailFragment();
         Bundle args = new Bundle();
 
-        args.putFloat(SUELDO_BRUTO,sueldoBruto);
-        args.putFloat(JUBILACION,jubilacion);
-        args.putFloat(OBRA_SOCIAL,obraSocial);
-        args.putFloat(SINDICATO,sindicato);
-        args.putFloat(GANANCIAS,ganancias);
-        args.putFloat(SUELDO_NETO,sueldoNeto);
-        args.putFloat(PAMI,pami);
+        args.putFloat(SUELDO_BRUTO,variable.get("sueldoBruto"));
+        args.putFloat(JUBILACION,variable.get("jubilacion"));
+        args.putFloat(OBRA_SOCIAL,variable.get("obrasocial"));
+        args.putFloat(SINDICATO,variable.get("sindicato"));
+        args.putFloat(GANANCIAS,variable.get("ganancias_mensual"));
+        args.putFloat(SUELDO_NETO,variable.get("sueldoNeto"));
+        args.putFloat(PAMI,variable.get("pami"));
 
         instance.setArguments(args);
 
